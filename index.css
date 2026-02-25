@@ -46,6 +46,8 @@ body {
   background-color: #f5f5f5;
   color: #333;
   line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -164,4 +166,15 @@ a {
   gap: 1rem;
 }
 
+.project-image {
+  margin-top: 1rem;
+  width: 300px;   
+  height: auto; 
+  display:block;  
+}
 
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

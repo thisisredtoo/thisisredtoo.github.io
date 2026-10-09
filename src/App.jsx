@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import Navbar from './components/NavBar.jsx'
+import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx'
 import Play from './pages/Play.jsx'
 import Gallery from './pages/Gallery.jsx'

@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'DM Sans', Arial, sans-serif;
+  font-family: 'Instrument Sans', Arial, sans-serif;
 }
 
 hr {
@@ -50,7 +50,7 @@ hr {
 
 
 body {
-  background-color: #ecf4fd;
+  background-color: #f6faff;
   color: #274f91;
   line-height: 1.6;
   margin: 0;
@@ -91,26 +91,168 @@ section {
   gap: 1.5rem;
 }
 
+/*  ---- CARD STYLE ---- */
+/* ---------- Card (no background) ---------- */
 .card {
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;               /* the hover effect lives on the image now */
 }
 
-.card:hover {
-  transform: translateY(-5px);
+/* ---- Image ---- */
+.card-media {
+  aspect-ratio: 3 / 2;
+  background: #d9d9d9;            /* placeholder when there's no image */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(39, 79, 145, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.card h5 {
-  margin-bottom: 0.5rem;
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
-.card p {
+.card:hover .card-media img {
+  transform: scale(1.04);         /* subtle zoom inside the rounded frame */
+}
+
+/* ---- Title ---- */
+.card-title {
+  margin-top: 1.1rem;
+  font-size: 1.25rem;
+  line-height: 1.15;
+  color: #274f91;                 /* change to #000 for the pure-black look */
+}
+
+.card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-title a:hover {
+  text-decoration: underline;
+}
+
+.card-role {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #5b6f94;
+}
+
+/* ---- Title + period row ---- */
+.card-header {
+  display: flex;
+  justify-content: space-between;   /* title on the left, period pushed to the right */
+  align-items: baseline;            /* text baselines line up even at different sizes */
+  flex-wrap: wrap;                  /* long titles or narrow screens drop the period below */
+  gap: 0.25rem 1rem;
+  margin-top: 1.1rem;
+}
+
+.card-title {
+  margin: 0;                        /* spacing now lives on .card-header */
+  font-size: 1.4rem;                /* smaller than before so both fit in one row */
+  font-weight: 600;
+  line-height: 1.15;
+  color: #274f91;
+}
+
+.card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-title a:hover {
+  text-decoration: underline;
+}
+
+.card-period {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #8a8f98;
+  white-space: nowrap;              /* keeps "AUG 2024 - PRESENT" on a single line */
+}
+
+/* ---- Tagline ---- */
+.card .card-description {
+  margin-top: 0.6rem;
+  font-size: 1.1rem;
+  /* font-weight: 600; */
+  line-height: 1.4;
+  color: #6b87bd;
+}
+
+/* ---- Tags ---- */
+.card-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin-top: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* ---- Date ---- */
+.card .card-period {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #8a8f98;
+}
+
+/* ---- Optional external link ---- */
+.card .card-link {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+
+/* ---- "Coming soon" placeholder (shown when a card has no image) ---- */
+.card-media--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* subtle diagonal stripes so it reads as a deliberate placeholder, not a broken image */
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #dcdcdc 0,
+      #dcdcdc 12px,
+      #d4d4d4 12px,
+      #d4d4d4 24px
+    );
+}
+
+.card-placeholder {
+  padding: 0.4rem 1rem;
   font-size: 0.85rem;
-  margin-bottom: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b7280;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 999px;             /* pill-shaped label */
+  user-select: none;
 }
+
+/* The hover zoom only applies to real images, so empty cards stay still */
+.card:hover .card-media--empty .card-placeholder {
+  transform: none;
+}
+
 
 .skills-list {
   list-style: none;

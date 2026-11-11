@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 // The only tags used across the site, and the color each one always gets.
 // Keys are the exact text you write in a project's `tags` array.
 const TAG_STYLES = {
-  'web application':        '#e58fb0',   // pink
-  'personal':       '#1f8a80',   // teal
-  'ui/ux design':   '#b39ddb',   // lavender
-  'graphic design': '#e0a458',   // amber
+  'web application': '#e58fb0',   // pink
+  'personal':        '#1f8a80',   // teal
+  'ui/ux design':    '#b39ddb',   // lavender
+  'graphic design':  '#e0a458',   // amber
 }
 
 // Used if you type a tag that isn't listed above
@@ -23,7 +23,8 @@ export default function Card({
   gallery,
   image,
   imageAlt,
-  placeholderText = 'Coming soon',   // text shown when there is no image
+  comingSoon = false,    // true shows the badge in the top-left of the image
+  badgeText = 'Coming soon',   // change the wording per project if you like
 }) {
   // Title goes to the gallery if there is one, otherwise to the external link
   const titleLink = gallery ? (
@@ -39,21 +40,15 @@ export default function Card({
   return (
     <article className="card">
       <div className={`card-media${image ? '' : ' card-media--empty'}`}>
-        {image ? (
+        {image && (
           <img
             src={`${import.meta.env.BASE_URL}${image}`}
             alt={imageAlt || `${title} preview`}
             loading="lazy"
           />
-        ) : (
-          <span
-            className="card-placeholder"
-            role="img"
-            aria-label={`${title} preview coming soon`}
-          >
-            {placeholderText}
-          </span>
         )}
+
+        {comingSoon && <span className="card-badge">{badgeText}</span>}
       </div>
 
       {/* Title and period share one row */}

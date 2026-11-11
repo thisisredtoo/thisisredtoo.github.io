@@ -10,7 +10,6 @@ export default function Gallery() {
       <main className="content">
         <section>
           <p>Gallery not found.</p>
-          <Link to="/play">Back to Play</Link>
         </section>
       </main>
     )
@@ -21,9 +20,6 @@ export default function Gallery() {
   return (
     <main className="content">
       <section>
-        <p style={{ marginBottom: '1rem' }}>
-          <Link to="/play">Back to Play</Link>
-        </p>
         <h2 className="section-title">{gallery.title}</h2>
         <p style={{ marginBottom: '2rem' }}>{gallery.intro}</p>
 

@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
-// `target` = section id on the home page. 'top' scrolls to the top of the page.
-// Links without a target (Play) are normal page navigation.
 const links = [
-  { label: 'Home', to: '/', target: 'top', key: 'home' },
-  { label: 'Play', to: '/play', key: 'play' },
-  { label: 'About', to: '/', target: 'about', key: 'about' },
-  { label: 'Contact', to: '/', target: 'contact', key: 'contact' },
+  { label: 'work', to: '/', target: 'top', key: 'home' },
+  { label: 'play', to: '/play', key: 'play' },
+  { label: 'about', to: '/', target: 'about', key: 'about' },
+  { label: 'resume', to: 'https://drive.google.com/file/d/1MwC1xr2QMHMH82aTwsyzE1RrWL4XP5V1/view?usp=drive_link', target: 'contact', key: 'contact' },
 ]
 
 export function scrollToSection(id) {
@@ -38,7 +36,7 @@ export default function Navbar() {
     const update = () => {
       const about = document.getElementById('about')?.getBoundingClientRect()
       const contact = document.getElementById('contact')?.getBoundingClientRect()
-      const line = 120 // roughly the navbar height plus a little room
+      const line = 120
 
       if (contact && contact.top < window.innerHeight * 0.6) setActive('contact')
       else if (about && about.top <= line && about.bottom > line) setActive('about')

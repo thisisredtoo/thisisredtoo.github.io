@@ -39,7 +39,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <hr/>
+      {/* <hr/>
 
       <Section id="experience" title="Experience">
         <div className="projects">
@@ -47,14 +47,6 @@ export default function Home() {
             <Card key={item.title} {...item} />
           ))}
         </div>
-      </Section>
-
-      {/* <Section id="skills" title="Skills & Interests">
-        <ul className="skills-list">
-          {skills.map((skill) => (
-            <li key={skill}>{skill}</li>
-          ))}
-        </ul>
       </Section> */}
 
       <hr/>

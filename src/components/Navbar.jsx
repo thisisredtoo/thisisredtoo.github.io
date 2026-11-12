@@ -5,7 +5,11 @@ const links = [
   { label: 'work', to: '/', target: 'top', key: 'home' },
   { label: 'play', to: '/play', key: 'play' },
   { label: 'about', to: '/', target: 'about', key: 'about' },
-  { label: 'resume', to: 'https://drive.google.com/file/d/1MwC1xr2QMHMH82aTwsyzE1RrWL4XP5V1/view?usp=drive_link', target: 'contact', key: 'contact' },
+  {
+    label: 'resume',
+    href: 'https://drive.google.com/file/d/1MwC1xr2QMHMH82aTwsyzE1RrWL4XP5V1/view?usp=drive_link',
+    key: 'resume',
+  },
 ]
 
 export function scrollToSection(id) {
@@ -86,14 +90,26 @@ export default function Navbar() {
         <ul id="nav-links" className={`nav-links${open ? ' open' : ''}`}>
           {links.map((link) => (
             <li key={link.key}>
-              <Link
-                to={link.to}
-                className={active === link.key ? 'active' : ''}
-                aria-current={active === link.key ? 'page' : undefined}
-                onClick={(e) => handleClick(e, link)}
-              >
-                {link.label}
-              </Link>
+              {link.href ? (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel=" noreferrer"
+                  onClick={() => setOPen(false)}
+                >
+                  {link.label}
+                </a>
+              ) : (
+
+                <Link
+                  to={link.to}
+                  className={active === link.key ? 'active' : ''}
+                  aria-current={active === link.key ? 'page' : undefined}
+                  onClick={(e) => handleClick(e, link)}
+                >
+                  {link.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>

@@ -4,6 +4,7 @@ import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx'
 import Play from './pages/Play.jsx'
 import Gallery from './pages/Gallery.jsx'
+import Footer from './components/Footer.jsx'
 
 // Start every page at the top, unless the navbar asked to scroll to a section
 function ScrollToTop() {
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/gallery/:slug" element={<Gallery />} />
         <Route path="*" element={<Home />} />
       </Routes>
+      <Footer />
     </>
   )
 }

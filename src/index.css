@@ -181,7 +181,7 @@ section {
 }
 
 .nav-links a {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: var(--color-heading);
   text-decoration: none;
@@ -412,7 +412,7 @@ section {
 
 
 /* ---------- 7. Skills & contact ---------- */
-.skills-list {
+/* .skills-list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -431,7 +431,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-}
+} */
 
 
 /* ---------- 8. Gallery pages ---------- */
@@ -572,5 +572,67 @@ section {
 
   .card:hover {
     transform: none;
+  }
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: 3rem;
+  background-color: #fffefb;
+  border-top: 1px solid #334eac;
+}
+
+/* Your global `*` rule forces Instrument Sans on every element,
+   so the font has to be set on the footer's children directly. */
+.footer,
+.footer * {
+  font-family: 'Lato', 'Instrument Sans', Arial, sans-serif;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 42px 55px 42px 53px;
+}
+
+.footer-connect {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--color-heading);
+}
+
+.footer-updated {
+  margin-top: 13px;
+  font-size: 16px;
+  font-style: italic;
+  line-height: normal;
+  color: #6a7abf;
+}
+
+.footer-icons {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 14.8px;
+}
+
+.footer-icons a {
+  display: flex;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  color: var(--color-heading);
+}
+
+.footer-icons a:hover {
+  opacity: 0.7;
+}
+
+
+@media (max-width: 700px) {
+  .footer-inner {
+    padding: 28px 5%;
   }
 }

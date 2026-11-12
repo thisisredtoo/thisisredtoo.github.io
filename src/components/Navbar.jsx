@@ -39,11 +39,9 @@ export default function Navbar() {
 
     const update = () => {
       const about = document.getElementById('about')?.getBoundingClientRect()
-      const contact = document.getElementById('contact')?.getBoundingClientRect()
       const line = 120
 
-      if (contact && contact.top < window.innerHeight * 0.6) setActive('contact')
-      else if (about && about.top <= line && about.bottom > line) setActive('about')
+      if (about && about.top <= line && about.bottom > line) setActive('about')
       else if (about && about.top > line) setActive('home')
       else setActive(null) // between sections (Experience, Projects, Skills)
     }

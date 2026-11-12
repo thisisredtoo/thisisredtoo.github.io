@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Hero from '../components/Hero.jsx'
 import About from '../components/About.jsx'
-import Contact from '../components/Contact.jsx'
 import Section from '../components/Section.jsx'
 import Card from '../components/Card.jsx'
 import Line from 'react';
@@ -49,9 +48,7 @@ export default function Home() {
         </div>
       </Section> */}
 
-      <hr/>
       
-      <Contact />
     </main>
   )
 }

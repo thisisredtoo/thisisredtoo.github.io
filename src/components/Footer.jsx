@@ -1,7 +1,7 @@
 import { FiMail } from 'react-icons/fi'
 import { BsLinkedin } from 'react-icons/bs'
 
-const LAST_UPDATED = 'nov. 7, 2026' // update this when you publish changes
+const LAST_UPDATED = 'nov. 17, 2026' // update this when you publish changes
 
 export default function Footer() {
   return (

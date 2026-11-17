@@ -72,7 +72,11 @@ export default function Navbar() {
     <header className="navbar">
       <nav className="navbar-inner" aria-label="Main">
         <Link to="/" className="navbar-brand" onClick={(e) => handleClick(e, links[0])}>
-          Erika Alvarez
+                <img
+          className="navbar-logo"
+          src={`${import.meta.env.BASE_URL}logo icon.png`}
+          alt="Erika Alvarez"
+        />
         </Link>
 
         <button

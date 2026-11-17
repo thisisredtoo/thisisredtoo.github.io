@@ -5,7 +5,7 @@ import About from '../components/About.jsx'
 import Section from '../components/Section.jsx'
 import Card from '../components/Card.jsx'
 import Line from 'react';
-// import { scrollToSection } from '../components/Navbar.jsx'
+import { scrollToSection } from '../components/Navbar.jsx'
 import { experience } from '../data/experience.js'
 import { projects } from '../data/projects.js'
 import { skills } from '../data/skills.js'

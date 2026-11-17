@@ -165,12 +165,27 @@ section {
   padding-block: 0.9rem;
 }
 
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
 .navbar-brand,
 .navbar-brand:hover {
-  color: var(--color-heading);
-  font-weight: 600;
-  font-size: 1.3rem;
   text-decoration: none;
+}
+
+.navbar-logo {
+  height: 45px;   /* displayed size; adjust to match Figma */
+  width: auto;    /* keeps the aspect ratio */
+  display: block;
+}
+
+@media (max-width: 700px) {
+  .navbar-logo {
+    height: 32px;
+  }
 }
 
 .nav-links {
@@ -408,30 +423,52 @@ section {
   .card:hover .card-media {
     box-shadow: 0 14px 24px rgba(0, 0, 0, 0.08);
   }
+
+  .card:hover .card-peek,
+  .card:has(:focus-visible) .card-peek {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Touch devices have no hover, so show the description normally below the title */
+@media (hover: none) {
+  .card-peek {
+    display: none;
+  }
+
+  .card-description {
+    display: block;
+  }
+}
+
+/* ---- Whole-card link (cards that have a gallery) ---- */
+
+/* The title link's ::after is stretched over the entire card, so a click
+   anywhere on it follows the link. .card is already position: relative. */
+.card-stretched::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.card--linked {
+  cursor: pointer;
 }
 
 
-/* ---------- 7. Skills & contact ---------- */
-/* .skills-list {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+
+/* Keyboard focus: outline the whole card instead of just the title text */
+.card-stretched:focus-visible {
+  outline: none;
 }
 
-.skills-list li {
-  background: var(--tint);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 1rem;
+.card:has(.card-stretched:focus-visible) {
+  outline: 2px solid var(--link);
+  outline-offset: 6px;
+  border-radius: var(--radius);
 }
-
-.contacts {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-} */
 
 
 /* ---------- 8. Gallery pages ---------- */
@@ -563,7 +600,6 @@ section {
     scroll-behavior: auto;
   }
 
-  .card,
   .card-media,
   .card-media img,
   .nav-links a {

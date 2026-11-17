@@ -16,7 +16,7 @@ export const projects = [
   {
     title: 'Attendance Logging System',
     // url: 'https://github.com/villaverraine/GA_Clock',
-    gallery: 'ga-clock',
+    page: 'attendance-tracker',
     comingSoon: true,   
     // role: 'Frontend Developer, UI/UX Designer',
     description: [

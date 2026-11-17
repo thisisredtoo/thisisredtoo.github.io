@@ -1,0 +1,156 @@
+/* Styles for the Attendance Tracker page ONLY.
+   Every rule starts with .attendance-tracker, so nothing leaks to other pages
+   (Vite bundles all CSS together, so unscoped rules would apply site-wide).
+
+   Colors from the Figma frame:
+   text #24262c · label #50a4e3 · accent #334eac · bg #fffefb · placeholder #d9d9d9
+   Fonts: Josefin Sans (titles, labels) and Lato (body), assumed already loaded. */
+
+.attendance-tracker {
+  display: block;
+  background: #fffefb;
+  color: #24262c;
+  min-height: 100vh;
+  padding-bottom: 6rem;
+}
+
+/* index.css sets a font on every element via *, so set ours the same way */
+.attendance-tracker * { font-family: 'Lato', Arial, sans-serif; }
+.attendance-tracker .project-title,
+.attendance-tracker .project-label,
+.attendance-tracker .project-meta dt { font-family: 'Josefin Sans', Arial, sans-serif; }
+
+.attendance-tracker .project-banner {
+  display: block;
+  width: 100%;
+  height: 290px;
+  margin-top: 1.8rem;
+  object-fit: cover;
+}
+
+.attendance-tracker .project-inner {
+  width: 100%;
+  max-width: 798px;
+  margin: 0 auto;
+  padding: 6rem 1.25rem 0;
+}
+
+.attendance-tracker .is-placeholder { background: #d9d9d9; }
+
+/* Header */
+.attendance-tracker .project-title {
+  font-size: clamp(1.9rem, 4vw, 2.488rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #24262c;
+}
+
+.attendance-tracker .project-summary {
+  margin-top: 1rem;
+  max-width: 711px;
+  font-size: 1.0625rem;
+}
+
+.attendance-tracker .project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 4rem;
+  margin-top: 4.5rem;
+}
+
+.attendance-tracker .project-meta dt,
+.attendance-tracker .project-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #50a4e3;
+}
+
+/* .attendance-tracker .project-meta dd { margin-top: 1.75rem; } */
+.attendance-tracker .project-meta-item:last-child dd { max-width: 179px; }
+
+/* Content */
+.attendance-tracker .project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+  margin-top: 4rem;
+}
+
+.attendance-tracker .project-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.attendance-tracker .project-label { letter-spacing: 0.04em; }
+
+.attendance-tracker .project-heading {
+  font-size: 1.728rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.attendance-tracker .project-body p { line-height: 1.5; }
+.attendance-tracker .project-body p + p { margin-top: 1.75rem; }
+
+/* Key features: image left, numbered text right */
+.attendance-tracker .project-features {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.attendance-tracker .project-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 436px) 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.attendance-tracker .project-feature-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 436 / 318;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.attendance-tracker .project-feature-num {
+  display: block;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 35px;
+  color: #334eac;
+}
+
+.attendance-tracker .project-feature-title { font-weight: 700; line-height: 35px; }
+.attendance-tracker .project-feature-desc { line-height: 21px; }
+
+/* Final design screens */
+.attendance-tracker .project-shots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.attendance-tracker .project-shot {
+  display: block;
+  width: 292px;
+  max-width: 100%;
+  border-radius: 12px;
+}
+.attendance-tracker .project-shot.is-placeholder { aspect-ratio: 292 / 284; }
+
+/* Takeaways */
+.attendance-tracker .project-bullets { margin-left: 1.5rem; }
+.attendance-tracker .project-bullets li { line-height: 28px; }
+.attendance-tracker .project-bullets strong { font-weight: 700; }
+
+@media (max-width: 700px) {
+  .attendance-tracker .project-banner { height: 180px; }
+  .attendance-tracker .project-inner { padding-top: 3rem; }
+  .attendance-tracker .project-meta { gap: 1.5rem 2.5rem; margin-top: 2.5rem; }
+  .attendance-tracker .project-feature { grid-template-columns: 1fr; gap: 1rem; }
+}

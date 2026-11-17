@@ -15,20 +15,26 @@ const DEFAULT_TAG_COLOR = '#6b7280'
 export default function Card({
   title,
   url,
-  urlLabel = 'GitHub',   // text for the external link when a gallery also exists
+  urlLabel = 'GitHub',   // text for the external link when a project page also exists
   role,
   period,
   tags = [],             // ['project', 'ui/ux design'] or [{ label, color }]
   description = [],      // first item is the bold gray tagline
-  gallery,
+  page,                  // slug of a page in ProjectPage.jsx, e.g. 'attendance-tracker'
+  gallery,               // legacy name for `page`, still accepted
   image,
   imageAlt,
   comingSoon = false,    // true shows the badge in the top-left of the image
-  badgeText = 'Coming soon',   // change the wording per project if you like
+  badgeText = 'Coming soon',
 }) {
-  // Title goes to the gallery if there is one, otherwise to the external link
-  const titleLink = gallery ? (
-    <Link to={`/gallery/${gallery}`}>{title}</Link>
+  const slug = page || gallery
+
+  // With a project page, the title link is stretched over the whole card (see the CSS).
+  // With only an external url, it stays an ordinary title link.
+  const titleLink = slug ? (
+    <Link className="card-stretched" to={`/project/${slug}`}>
+      {title}
+    </Link>
   ) : url ? (
     <a href={url} target="_blank" rel="noreferrer">
       {title}
@@ -38,7 +44,7 @@ export default function Card({
   )
 
   return (
-    <article className="card">
+    <article className={`card${slug ? ' card--linked' : ''}`}>
       <div className={`card-media${image ? '' : ' card-media--empty'}`}>
         {image && (
           <img
@@ -80,14 +86,6 @@ export default function Card({
             )
           })}
         </ul>
-      )}
-
-      {gallery && url && (
-        <p className="card-link">
-          <a href={url} target="_blank" rel="noreferrer">
-            {urlLabel} ↗
-          </a>
-        </p>
       )}
     </article>
   )

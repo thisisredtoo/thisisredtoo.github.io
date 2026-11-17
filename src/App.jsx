@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation, useParams } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx'
 import Play from './pages/Play.jsx'
-import Gallery from './pages/Gallery.jsx'
+import ProjectPage from './pages/ProjectPage.jsx'
 import Footer from './components/Footer.jsx'
 
 // Start every page at the top, unless the navbar asked to scroll to a section
@@ -15,6 +15,12 @@ function ScrollToTop() {
   return null
 }
 
+// Optional: old /gallery/<slug> links keep working by forwarding to the project page
+function GalleryRedirect() {
+  const { slug } = useParams()
+  return <Navigate to={`/project/${slug}`} replace />
+}
+
 export default function App() {
   return (
     <>
@@ -23,7 +29,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/play" element={<Play />} />
-        <Route path="/gallery/:slug" element={<Gallery />} />
+        <Route path="/project/:slug" element={<ProjectPage />} />
+        <Route path="/gallery/:slug" element={<GalleryRedirect />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />

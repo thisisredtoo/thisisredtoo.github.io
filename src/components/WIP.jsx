@@ -23,26 +23,27 @@ export default function WorkInProgress({
 
   // Full placeholder for a page with no real content yet
   return (
-    <section className="wip">
-      <div className="card wip-card">
-        <div className="wip-stripe" aria-hidden="true" />
+    // <section className="wip">
+    //   <div className="card wip-card">
+    //     <div className="wip-stripe" aria-hidden="true" />
 
-        <p className="wip-emoji" aria-hidden="true">🚧</p>
-        <h2 className="wip-title">{title}</h2>
-        <p className="wip-message">{message}</p>
+    //     <p className="wip-emoji" aria-hidden="true">🚧</p>
+    //     <h2 className="wip-title">{title}</h2>
+    //     <p className="wip-message">{message}</p>
 
-        {details.length > 0 && (
-          <ul className="wip-details">
-            {details.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        )}
+    //     {details.length > 0 && (
+    //       <ul className="wip-details">
+    //         {details.map((item) => (
+    //           <li key={item}>{item}</li>
+    //         ))}
+    //       </ul>
+    //     )}
 
-        {eta && <p className="wip-eta">{eta}</p>}
+    //     {eta && <p className="wip-eta">{eta}</p>}
 
-        <Link to={backTo}>{backLabel}</Link>
-      </div>
-    </section>
+    //     <Link to={backTo}>{backLabel}</Link>
+    //   </div>
+    // </section>
+    <p style={{fontStyle: 'italic', color: '#787878', textAlign: 'center'}}>{message}</p>
   )
 }

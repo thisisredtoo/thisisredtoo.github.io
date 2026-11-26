@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useLocation, useParams } from 'react-router-do
 import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx'
 import Play from './pages/Play.jsx'
+import About from './pages/About.jsx'
 import ProjectPage from './pages/ProjectPage.jsx'
 import Footer from './components/Footer.jsx'
 
@@ -29,6 +30,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/play" element={<Play />} />
+        <Route path="/about" element={<About />} />
         <Route path="/project/:slug" element={<ProjectPage />} />
         <Route path="/gallery/:slug" element={<GalleryRedirect />} />
         <Route path="*" element={<Home />} />

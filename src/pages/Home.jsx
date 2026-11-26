@@ -26,11 +26,10 @@ export default function Home() {
   return (
     <main className="content">
       <Hero />
-      <About />
+      {/* <Intro /> */}
 
-      <hr/>
 
-      <Section id="projects" title="Projects">
+      <Section id="projects">
         <div className="projects">
           {projects.map((item) => (
             <Card key={item.title} {...item} />

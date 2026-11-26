@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600;700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* =====================================================
+   About page
+   NOTE: index.css sets font-family on `*`, so fonts are
+   set on `.about-page *` / `.site-footer *` below.
+   ===================================================== */
+
+body.about-bg {
+  background-color: #fffdfb;
+}
+
+/* The design's navbar has no bottom border on this page */
+body.about-bg .navbar {
+  border-bottom-color: transparent;
+}
+
+.about-page,
+.site-footer {
+  --about-blue: #2f49a6;
+  --about-sky: #4a9be0;
+  --about-ink: #1f1f1f;
+  --about-muted: #8a8a8a;
+  --about-placeholder: #d9d9d9;
+}
+
+.about-page,
+.about-page *,
+.site-footer,
+.site-footer * {
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+.about-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 5% 0;
+  color: var(--about-ink);
+  margin-top: 5rem;
+}
+
+/* index.css gives every <section> side padding; reset it here */
+.about-page section {
+  padding: 0;
+}
+
+.about-page p {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* ---------- Intro ---------- */
+.about-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 361px;
+  gap: 3.75rem;
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+.about-page .about-title {
+  font-family: 'Josefin Sans', 'Lato', Arial, sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  color: var(--about-blue);
+  margin-bottom: 2rem;
+}
+
+.about-intro-text p + p {
+  margin-top: 1.75rem;
+}
+
+.about-photo img {
+  display: block;
+  width: 90%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.about-photo figcaption {
+  margin-top: 0.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--about-muted);
+}
+
+/* ---------- Feature rows (text left, media right) ---------- */
+.about-feature {
+  /* display: grid;
+  grid-template-columns: minmax(0, 480px) minmax(0, 1fr);
+  column-gap: 3.25rem; */
+  align-items: start;
+  margin-bottom: 6.5rem;
+}
+
+.about-page .about-subtitle {
+  font-size: 1.188rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--about-sky);
+  margin-bottom: 1rem;
+}
+
+/* ---------- Carousel ---------- */
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  /* Room for the hover lift + shadow (overflow: hidden would clip them).
+     The negative margin cancels the padding so the layout doesn't move. */
+  padding: 14px 0;
+  margin: -14px 0;
+  margin-top: 1rem;
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  list-style: none;
+  animation: carousel-scroll var(--duration, 40s) linear infinite;
+}
+
+/* Pause while someone is looking at / focusing a photo */
+.carousel:hover .carousel-track,
+.carousel:focus-within .carousel-track {
+  animation-play-state: paused;
+}
+
+/* Spacing is margin (not gap) so that -50% lands exactly on the second copy */
+.carousel-item {
+  flex: 0 0 auto;
+  width: 241px;
+  aspect-ratio: 241 / 349;
+  margin-right: 23px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--about-placeholder);
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover / keyboard focus: lift the photo and reveal its caption */
+.carousel-item:hover,
+.carousel-item:focus-visible {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+}
+
+.carousel-item:focus-visible {
+  outline: 2px solid var(--about-sky);
+  outline-offset: 3px;
+}
+
+.carousel-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.5rem 0.9rem 0.8rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0));
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.carousel-item:hover .carousel-caption,
+.carousel-item:focus-visible .carousel-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes carousel-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* No automatic motion: let people swipe/scroll through one copy instead */
+@media (prefers-reduced-motion: reduce) {
+  .carousel {
+    overflow-x: auto;
+  }
+
+  .carousel-track {
+    animation: none;
+  }
+
+  .carousel-item[aria-hidden='true'] {
+    display: none;
+  }
+}
+
+/* ---------- Music ---------- */
+.about-music {
+  margin-bottom: 5rem;
+}
+
+.music-bar {
+  height: 46px;
+  border-radius: 4px;
+  background: var(--about-placeholder);
+  margin-bottom: 1.2rem;
+}
+
+.music-covers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.05rem;
+}
+
+.music-cover {
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--about-placeholder);
+}
+
+.music-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.music-list {
+  margin-top: 1.5rem;
+}
+
+.about-page .music-list p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .about-intro {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-photo {
+    max-width: 361px;
+  }
+
+  .about-feature {
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-page {
+    padding-top: 2.5rem;
+  }
+
+  .carousel-item {
+    width: 200px;
+    margin-right: 16px;
+  }
+}

@@ -44,7 +44,8 @@ export const projects = [
     url: 'https://www.figma.com/proto/ZQVwiTjHrP7PQuhDWDYRgC/STHCIUX?node-id=1168-37456&t=5TcfmZChZHJoRUv0-1',
     urlLabel: 'Figma',
     description: [
-      'Strengthens the identity of CCSU CARES within the university and streamlines access to their counseling services.',
+      // 'Strengthens the identity of CCSU CARES within the university and streamlines access to their counseling services.',
+      'case study & ui/ux design'
     ],
     // tags: ['prototype', 'ui/ux'],
     period: '2024',                       // TODO

@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
+// `target` = section id on the home page. 'top' scrolls to the top of Home.
+// Links without a target (play, about) are normal page navigation.
 const links = [
   { label: 'work', to: '/', target: 'top', key: 'home' },
   { label: 'play', to: '/play', key: 'play' },
-  { label: 'about', to: '/', target: 'about', key: 'about' },
+  { label: 'about', to: '/about', key: 'about' },
   {
     label: 'resume',
     href: 'https://drive.google.com/file/d/1MwC1xr2QMHMH82aTwsyzE1RrWL4XP5V1/view?usp=drive_link',
@@ -24,40 +26,20 @@ export default function Navbar() {
   const { pathname } = useLocation()
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
-  const [active, setActive] = useState('home')
 
-  // Highlight the current page / section
-  useEffect(() => {
-    if (pathname === '/play') {
-      setActive('play')
-      return
-    }
-    if (pathname !== '/') {
-      setActive(null)
-      return
-    }
-
-    const update = () => {
-      const about = document.getElementById('about')?.getBoundingClientRect()
-      const line = 120
-
-      if (about && about.top <= line && about.bottom > line) setActive('about')
-      else if (about && about.top > line) setActive('home')
-      else setActive(null) // between sections (Experience, Projects, Skills)
-    }
-
-    update()
-    window.addEventListener('scroll', update, { passive: true })
-    window.addEventListener('resize', update)
-    return () => {
-      window.removeEventListener('scroll', update)
-      window.removeEventListener('resize', update)
-    }
-  }, [pathname])
+  // Which link is highlighted depends only on the current page
+  const active =
+    pathname === '/'
+      ? 'home'
+      : pathname === '/play'
+        ? 'play'
+        : pathname === '/about'
+          ? 'about'
+          : null
 
   const handleClick = (e, link) => {
     setOpen(false)
-    if (!link.target) return // Play: let the router handle it
+    if (!link.target) return // play / about: let the router handle it
 
     e.preventDefault()
     if (pathname === '/') {
@@ -72,11 +54,11 @@ export default function Navbar() {
     <header className="navbar">
       <nav className="navbar-inner" aria-label="Main">
         <Link to="/" className="navbar-brand" onClick={(e) => handleClick(e, links[0])}>
-                <img
-          className="navbar-logo"
-          src={`${import.meta.env.BASE_URL}logo icon.png`}
-          alt="Erika Alvarez"
-        />
+          <img
+            className="navbar-logo"
+            src={`${import.meta.env.BASE_URL}logo icon.png`}
+            alt="Erika Alvarez"
+          />
         </Link>
 
         <button
@@ -96,13 +78,12 @@ export default function Navbar() {
                 <a
                   href={link.href}
                   target="_blank"
-                  rel=" noreferrer"
-                  onClick={() => setOPen(false)}
+                  rel="noreferrer"
+                  onClick={() => setOpen(false)}
                 >
                   {link.label}
                 </a>
               ) : (
-
                 <Link
                   to={link.to}
                   className={active === link.key ? 'active' : ''}

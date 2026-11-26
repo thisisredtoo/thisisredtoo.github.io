@@ -5,7 +5,7 @@ export default function Play() {
     <main className="content">
       <WorkInProgress
         title="Play is under construction"
-        message="I'm still putting together this page. Something fun is coming!"
+        message="Erika is still working on this. Check back soon!"
         details={['Illustration galleries', 'Side experiments']}
         eta="Coming soon"
         backTo="/"

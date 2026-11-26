@@ -1,7 +1,7 @@
 import { FiMail } from 'react-icons/fi'
 import { BsLinkedin } from 'react-icons/bs'
 
-const LAST_UPDATED = 'nov. 17, 2026' // update this when you publish changes
+const LAST_UPDATED = 'Made with coffee, whimsy, and other things in between' // update this when you publish changes
 
 export default function Footer() {
   return (
@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="footer-text">
           <p className="footer-connect">Let’s connect!ヾ(•ω•`)o</p>
-          <p className="footer-updated">last updated: {LAST_UPDATED}</p>
+          <p className="footer-updated">{LAST_UPDATED}</p>
         </div>
 
         <ul className="footer-icons">

@@ -30,7 +30,11 @@ export default function AttendanceTracker() {
           {/* TODO: this text is cut off in the Figma file ("The company builds ...") */}
           <p>
             Gallium31 is an IT and digital innovation company specializing in digital
-            transformation and custom application development. The company builds
+            transformation and custom application development.
+          </p>
+          <p>
+            Me and my groupmates were tasked to design and develop a web application that would help
+            Gallium31 manage and monitor intern attendance records.
           </p>
         </Body>
       </Block>

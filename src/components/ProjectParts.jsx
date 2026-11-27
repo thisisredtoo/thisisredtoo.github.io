@@ -18,15 +18,13 @@ export function ProjectLayout({
   className,
   title,
   summary,
-  banner,
-  bannerAlt,
+  thumbnail,
+  thumbnailAlt,
   meta = [],
   children,
 }) {
   return (
     <main className={className}>
-      <Img className="project-banner" src={banner} alt={bannerAlt} />
-
       <div className="project-inner">
         <header className="project-header">
           <h1 className="project-title">{title}</h1>
@@ -43,6 +41,8 @@ export function ProjectLayout({
             </dl>
           )}
         </header>
+
+        <Img className="project-thumbnail" src={thumbnail} alt={thumbnailAlt} />
 
         <div className="project-content">{children}</div>
       </div>

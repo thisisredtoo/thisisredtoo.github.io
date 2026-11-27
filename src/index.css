@@ -63,6 +63,10 @@ body {
   color: var(--color-body);         /* default text color for everything */
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
 /* Headings use Josefin Sans; everything else inherits Inter from body */
@@ -144,7 +148,7 @@ section {
 .projects {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 3rem;
+  gap: 2.5rem;
 }
 
 
@@ -154,6 +158,11 @@ section {
   top: 0;
   z-index: 100;
   background-color: var(--bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  color: #fffefb;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-inner {
@@ -236,26 +245,6 @@ section {
 .about-text {
   flex: 1;
   font-size: 1rem;
-  line-height: 1.7;
-}
-
-.about-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.about-image img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: var(--radius);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.about-paragraph {
-  max-width: 700px;
-  font-size: 1.05rem;
   line-height: 1.7;
 }
 
@@ -616,6 +605,11 @@ section {
   margin-top: 3rem;
   background-color: #fffefb;
   border-top: 1px solid #334eac;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  color: #fffefb;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
 /* Your global `*` rule forces Instrument Sans on every element,

@@ -16,13 +16,13 @@ export default function AttendanceTracker() {
       className="attendance-tracker"
       title="Attendance Tracking Web App"
       summary="Streamlines intern timekeeping and helps administrators efficiently manage and monitor attendance records."
-      banner=""
-      bannerAlt="Attendance Tracking Web App banner"
+      thumbnail="images/GalliumClock/Thumbnail.png"
+      thumbnailAlt="Attendance Tracking Web App preview"
       meta={[
         ['Role', 'Designer & Developer'],
-        ['Timeline', '2024 (3 months)'],
+        ['Timeline', 'Oct - Dec 2024'],
         ['Tools', 'Figma, ReactJS'],
-        ['Skills', 'Prototyping, Wireframes, Development'],
+        // ['Skills', 'Prototyping, Wireframes, Development'],
       ]}
     >
       <Block label="overview">
@@ -72,7 +72,7 @@ export default function AttendanceTracker() {
           <Feature
             n={1}
             title="Log time-in and time-out with automatic timestamps."
-            image="" /* export the dashboard screenshot from Figma into /public */
+            image="images/GalliumClock/User Dashboard.png" /* export the dashboard screenshot from Figma into /public */
             alt="Intern dashboard with time-in and time-out"
           >
             Interns record daily attendance with a simple click, automatically capturing
@@ -80,14 +80,17 @@ export default function AttendanceTracker() {
           </Feature>
 
           {/* TODO: placeholder copy duplicated from feature 01 in Figma */}
-          <Feature n={2} title="Log time-in and time-out with automatic timestamps." image="" alt="">
-            Interns record daily attendance with a simple click, automatically capturing
-            the start and end of their shift.
+          <Feature 
+          n={2} 
+          title="View intern attendance records" 
+          image="images/GalliumClock/Admin Dashboard.png" 
+          alt="">
+            Admins can view the list of interns and their respective attendance records
           </Feature>
         </Features>
       </Block>
 
-      <Block label="final design">
+      {/* <Block label="final design">
         <Body>
           <p>
             I collaborated with my teammates to brainstorm interface ideas and create
@@ -99,7 +102,7 @@ export default function AttendanceTracker() {
           <Shot src="" alt="" />
           <Shot src="" alt="" />
         </Shots>
-      </Block>
+      </Block> */}
 
       <Block label="takeaways">
         <ul className="project-bullets">
@@ -122,8 +125,7 @@ export default function AttendanceTracker() {
           <li>
             <strong>Redesign the interface.</strong> Admittedly, the overall design feels
             rushed since we focused more on including the key features and making the user
-            flow easy. Sometime in the future, I’ll consider redesigning the interface to
-            make it more modern and practice my skills.
+            flow easy. Sometime in the future, I'll consider redesigning it to be more modern.
           </li>
         </ul>
       </Block>

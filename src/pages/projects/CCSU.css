@@ -1,0 +1,160 @@
+/* Styles for the CCSU project page ONLY.
+   Every rule starts with .ccsu, so nothing leaks to other pages
+   (Vite bundles all CSS together, so unscoped rules would apply site-wide).
+
+   Colors (copied from the Attendance Tracker frame, update if the CCSU frame differs):
+   text #24262c · label #50a4e3 · accent #334eac · bg #fffefb · placeholder #d9d9d9
+   Fonts: Josefin Sans (titles, labels) and Lato (body), assumed already loaded. */
+
+.ccsu {
+  display: block;
+  background: #fffefb;
+  color: #24262c;
+  min-height: 100vh;
+  padding-bottom: 6rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* index.css sets a font on every element via *, so set ours the same way */
+.ccsu * { font-family: 'Lato', Arial, sans-serif; }
+.ccsu .project-title,
+.ccsu .project-label,
+.ccsu .project-meta dt { font-family: 'Josefin Sans', Arial, sans-serif; }
+
+.ccsu .project-thumbnail {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-top: 2.5rem;
+}
+
+.ccsu .project-inner {
+  width: 100%;
+  max-width: 710px;
+  margin: 0 auto;
+  padding: 6rem 1.25rem 0;
+}
+
+/* .ccsu .is-placeholder { background: #d9d9d9; } */
+
+/* Header */
+.ccsu .project-title {
+  font-size: clamp(1.6rem, 3.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #24262c;
+}
+
+.ccsu .project-summary {
+  margin-top: 1rem;
+  max-width: 711px;
+  font-size: 1.0625rem;
+}
+
+.ccsu .project-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem 4rem;
+  margin-top: 2rem;
+}
+
+.ccsu .project-meta dt,
+.ccsu .project-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #50a4e3;
+}
+
+/* .ccsu .project-meta dd { margin-top: 1.75rem; } */
+.ccsu .project-meta-item:last-child dd { max-width: 179px; }
+
+/* Content */
+.ccsu .project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+  margin-top: 4rem;
+}
+
+.ccsu .project-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ccsu .project-label { letter-spacing: 0.04em; }
+
+.ccsu .project-heading {
+  font-size: 1.728rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.ccsu .project-body p { line-height: 1.5; }
+.ccsu .project-body p + p { margin-top: 1.75rem; }
+
+/* Key features: image left, numbered text right */
+.ccsu .project-features {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.ccsu .project-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 436px) 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.ccsu .project-feature-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 436 / 318;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.ccsu .project-feature-num {
+  display: block;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 35px;
+  color: #334eac;
+}
+
+.ccsu .project-feature-title { font-weight: 700; line-height: 35px; }
+.ccsu .project-feature-desc { line-height: 21px; }
+
+/* Final design screens */
+.ccsu .project-shots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.ccsu .project-shot {
+  display: block;
+  width: 292px;
+  max-width: 100%;
+  border-radius: 12px;
+}
+.ccsu .project-shot.is-placeholder { aspect-ratio: 292 / 284; }
+
+/* Takeaways */
+.ccsu .project-bullets { margin-left: 1.5rem; }
+.ccsu .project-bullets li { line-height: 28px; }
+.ccsu .project-bullets strong { font-weight: 700; }
+
+@media (max-width: 700px) {
+  .ccsu .project-inner { padding-top: 3rem; }
+  .ccsu .project-meta { gap: 1.5rem 2.5rem; margin-top: 2.5rem; }
+  .ccsu .project-feature { grid-template-columns: 1fr; gap: 1rem; }
+}

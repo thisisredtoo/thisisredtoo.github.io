@@ -12,6 +12,9 @@
   color: #24262c;
   min-height: 100vh;
   padding-bottom: 6rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* index.css sets a font on every element via *, so set ours the same way */
@@ -20,42 +23,44 @@
 .attendance-tracker .project-label,
 .attendance-tracker .project-meta dt { font-family: 'Josefin Sans', Arial, sans-serif; }
 
-.attendance-tracker .project-banner {
+.attendance-tracker .project-thumbnail {
   display: block;
   width: 100%;
-  height: 290px;
-  margin-top: 1.8rem;
+  aspect-ratio: 5 / 3;
   object-fit: cover;
+  border-radius: 16px;
+  margin-top: 2.5rem;
 }
 
 .attendance-tracker .project-inner {
   width: 100%;
-  max-width: 798px;
+  max-width: 710px;
   margin: 0 auto;
   padding: 6rem 1.25rem 0;
 }
 
-.attendance-tracker .is-placeholder { background: #d9d9d9; }
+/* .attendance-tracker .is-placeholder { background: #d9d9d9; } */
 
 /* Header */
 .attendance-tracker .project-title {
-  font-size: clamp(1.9rem, 4vw, 2.488rem);
+  font-size: clamp(1.6rem, 3.5vw, 2rem);
   font-weight: 700;
   line-height: 1.2;
   color: #24262c;
 }
 
 .attendance-tracker .project-summary {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   max-width: 711px;
-  font-size: 1.0625rem;
+  font-size: 1rem;
 }
 
 .attendance-tracker .project-meta {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1.5rem 4rem;
-  margin-top: 4.5rem;
+  margin-top: 2rem;
+  font-size: 1rem;
 }
 
 .attendance-tracker .project-meta dt,
@@ -80,18 +85,22 @@
 .attendance-tracker .project-block {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.5rem;
 }
 
 .attendance-tracker .project-label { letter-spacing: 0.04em; }
 
 .attendance-tracker .project-heading {
-  font-size: 1.728rem;
+  font-size: 1.6rem;
   font-weight: 700;
   line-height: 1.25;
 }
 
-.attendance-tracker .project-body p { line-height: 1.5; }
+.attendance-tracker .project-body p { 
+  margin-top: 1rem;
+  line-height: 1.5; 
+  font-size: 1rem;
+}
 .attendance-tracker .project-body p + p { margin-top: 1.75rem; }
 
 /* Key features: image left, numbered text right */
@@ -119,14 +128,14 @@
 .attendance-tracker .project-feature-num {
   display: block;
   font-family: 'Inter', Arial, sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 800;
   line-height: 35px;
   color: #334eac;
 }
 
-.attendance-tracker .project-feature-title { font-weight: 700; line-height: 35px; }
-.attendance-tracker .project-feature-desc { line-height: 21px; }
+.attendance-tracker .project-feature-title { font-weight: 700; }
+.attendance-tracker .project-feature-desc { margin-top: 1rem; line-height: 21px; }
 
 /* Final design screens */
 .attendance-tracker .project-shots {
@@ -149,7 +158,6 @@
 .attendance-tracker .project-bullets strong { font-weight: 700; }
 
 @media (max-width: 700px) {
-  .attendance-tracker .project-banner { height: 180px; }
   .attendance-tracker .project-inner { padding-top: 3rem; }
   .attendance-tracker .project-meta { gap: 1.5rem 2.5rem; margin-top: 2.5rem; }
   .attendance-tracker .project-feature { grid-template-columns: 1fr; gap: 1rem; }

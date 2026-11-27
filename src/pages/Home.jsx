@@ -27,8 +27,6 @@ export default function Home() {
     <main className="content">
       <Hero />
       {/* <Intro /> */}
-
-
       <Section id="projects">
         <div className="projects">
           {projects.map((item) => (

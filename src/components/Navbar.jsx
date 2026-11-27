@@ -7,11 +7,11 @@ const links = [
   { label: 'work', to: '/', target: 'top', key: 'home' },
   { label: 'play', to: '/play', key: 'play' },
   { label: 'about', to: '/about', key: 'about' },
-  {
-    label: 'resume',
-    href: 'https://drive.google.com/file/d/1MwC1xr2QMHMH82aTwsyzE1RrWL4XP5V1/view?usp=drive_link',
-    key: 'resume',
-  },
+  // {
+  //   label: 'resume',
+  //   href: 'https://drive.google.com/file/d/1MwC1xr2QMHMH82aTwsyzE1RrWL4XP5V1/view?usp=drive_link',
+  //   key: 'resume',
+  // },
 ]
 
 export function scrollToSection(id) {
